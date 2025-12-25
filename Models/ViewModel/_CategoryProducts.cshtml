@@ -1,0 +1,39 @@
+﻿@model ProjetNet.Models.ViewModel.CategoryPaginationViewModel
+
+<div class="category-container" id="category-@Model.Category.Id">
+    <div class="row">
+        @foreach (var product in Model.Products)
+        {
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
+                <div class="card h-100 shadow-sm border-0 rounded-3 overflow-hidden">
+                    <img src="/images/@product.ImageUrl"
+                         class="card-img-top"
+                         style="height: 220px; object-fit: cover;">
+                    <div class="card-body text-center">
+                        <h6 class="card-title text-truncate">@product.Name</h6>
+                        <p class="text-muted small mb-1">@product.Brand?.Name</p>
+                        <p class="fw-bold mb-2">@product.Price DT</p>
+                        <a href="/Product/Details/@product.Id" class="btn btn-primary btn-sm w-100">
+                            Voir détails
+                        </a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    <!-- Pagination -->
+    <ul class="pagination justify-content-center mt-3">
+        @for (int i = 1; i <= Model.TotalPages; i++)
+        {
+            var routeValues = new RouteValueDictionary();
+            routeValues[$"category{Model.Category.Id}Page"] = i;
+
+            <li class="page-item @(i == Model.Page ? "active" : "")">
+                <a class="page-link" href="@Url.Action("ProductsByCategory", "Home", routeValues)##category-@Model.Category.Id">
+                    @i
+                </a>
+            </li>
+        }
+    </ul>
+</div>

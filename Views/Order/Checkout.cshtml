@@ -1,0 +1,31 @@
+﻿@model ProjetNet.Models.ViewModel.CheckoutViewModel
+
+<h2>Votre Panier</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Produit</th>
+            <th>Quantité</th>
+            <th>Prix Unitaire</th>
+            <th>Sous-total</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.CartItems)
+        {
+            <tr>
+                <td>@item.Product.Name</td>
+                <td>@item.Quantity</td>
+                <td>@item.Product.Price</td>
+                <td>@((item.Product.Price * item.Quantity))</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h3>Total : @Model.Total</h3>
+
+<form asp-action="PlaceOrder" method="post">
+    <button type="submit" class="btn btn-success">Confirmer la commande</button>
+</form>

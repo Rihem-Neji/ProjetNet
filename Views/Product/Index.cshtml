@@ -1,0 +1,29 @@
+﻿@model IEnumerable<ProjetNet.Models.Product>
+
+@{
+    ViewData["Title"] = "Produits";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4">Tous les Produits</h2>
+
+    <div class="row">
+        @foreach (var p in Model)
+        {
+            <div class="col-md-3 mb-4">
+                <div class="card shadow-sm">
+                    <img src="/images/products/@p.ImageUrl" class="card-img-top" height="200" style="object-fit:cover" />
+
+                    <div class="card-body">
+                        <h5>@p.Name</h5>
+                        <p class="text-muted">@p.Brand?.Name</p>
+                        <p class="fw-bold">@p.Price DT</p>
+
+                        <a class="btn btn-outline-primary w-100" href="/Product/Details/@p.Id">Voir Détails</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+</div>

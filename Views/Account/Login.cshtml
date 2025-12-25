@@ -1,0 +1,62 @@
+﻿@model ProjetNet.Models.ViewModel.LoginViewModel
+
+@{
+    ViewData["Title"] = "Connexion";
+}
+
+<div class="container-fluid p-0 overflow-hidden" style="min-height: 100vh;">
+    <div class="row g-0">
+        <!-- Left Side: Creative Visual -->
+        <div class="col-lg-6 d-none d-lg-block position-relative bg-primary">
+            <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=2070&auto=format&fit=crop" 
+                 class="w-100 vh-100" 
+                 style="object-fit: cover; opacity: 0.95;" 
+                 alt="Fashion Art">
+            <div class="position-absolute top-0 start-0 w-100 h-100 bg-white" style="opacity: 0.1;"></div> <!-- Reflet léger -->
+            <div class="position-absolute top-50 start-50 translate-middle text-center text-white px-5" style="text-shadow: 0 2px 4px rgba(0,0,0,0.5);">
+                <h1 class="display-3 fw-bold mb-4" style="text-shadow: 2px 2px 10px rgba(0,0,0,0.3);">Welcome Back</h1>
+                <p class="lead fs-4" style="text-shadow: 1px 1px 5px rgba(0,0,0,0.3);">Discover the latest trends in our exclusive collection.</p>
+            </div>
+        </div>
+
+        <!-- Right Side: Clean Form -->
+        <div class="col-lg-6 d-flex align-items-center justify-content-center bg-white">
+            <div class="p-5 w-100" style="max-width: 550px;">
+                <div class="mb-5 text-center">
+                    <span class="badge bg-secondary text-primary rounded-pill px-3 py-2 mb-3">Member Access</span>
+                    <h2 class="fw-bold text-primary display-6">Connexion</h2>
+                    <p class="text-muted">Entrez vos identifiants pour continuer</p>
+                </div>
+
+                <form method="post" class="needs-validation">
+                    <div class="form-floating mb-4">
+                        <input asp-for="Email" class="form-control bg-light border-0 rounded-3" placeholder="name@example.com" style="height: 3.5rem;" />
+                        <label class="text-muted">Email Address</label>
+                    </div>
+
+                    <div class="form-floating mb-4">
+                        <input asp-for="Password" class="form-control bg-light border-0 rounded-3" type="password" placeholder="Password" style="height: 3.5rem;" />
+                        <label class="text-muted">Password</label>
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center mb-5">
+                        <div class="form-check">
+                            <input asp-for="RememberMe" class="form-check-input" />
+                            <label class="form-check-label text-muted small">Se souvenir de moi</label>
+                        </div>
+                        <a href="#" class="small text-accent fw-bold text-decoration-none">Mot de passe oublié ?</a>
+                    </div>
+
+                    <button class="btn btn-primary w-100 py-3 rounded-pill fw-bold fs-5 shadow-lg hover-scale">
+                        Se connecter <i class="fas fa-arrow-right ms-2"></i>
+                    </button>
+
+                    <div class="text-center mt-5">
+                        <p class="text-muted">Nouveau ici ? <a href="/Account/Register" class="text-accent fw-bold text-decoration-none ms-1">Créer un compte</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

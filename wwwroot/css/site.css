@@ -1,0 +1,203 @@
+:root {
+  /* Color Palette - Lighter Soft Violet Theme */
+  --primary-color: #c084fc;
+  /* Purple 400 - Lighter, softer violet */
+  --primary-dark: #a855f7;
+  /* Purple 500 - Slightly darker for hover/text contrast if needed */
+  --secondary-color: #f3e8ff;
+  /* Purple 100 - Very light lavender */
+  --accent-color: #e879f9;
+  /* Fuchsia 400 - Soft Pink/Purple Accent */
+  --accent-hover: #d946ef;
+  /* Fuchsia 500 */
+  --bg-body: #faf5ff;
+  /* Purple 50 */
+  --bg-surface: #ffffff;
+  --text-main: #581c87;
+  /* Purple 900 - Deep purple text for readability */
+  --text-muted: #9333ea;
+  /* Purple 600 */
+  --border-color: #d8b4fe;
+  /* Purple 300 */
+
+  --shadow-sm: 0 1px 2px 0 rgb(192 132 252 / 0.15);
+  --shadow-md: 0 4px 6px -1px rgb(192 132 252 / 0.15), 0 2px 4px -2px rgb(192 132 252 / 0.15);
+  --shadow-lg: 0 10px 15px -3px rgb(192 132 252 / 0.15), 0 4px 6px -4px rgb(192 132 252 / 0.15);
+  --radius-md: 1rem;
+  --radius-lg: 1.5rem;
+}
+
+html {
+  font-size: 14px;
+  position: relative;
+  min-height: 100%;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--bg-body);
+  color: var(--text-main);
+  margin-bottom: 60px;
+  line-height: 1.6;
+}
+
+/* Typography Enhancements */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  color: var(--text-main);
+  /* Deep purple for headers */
+  letter-spacing: -0.025em;
+}
+
+a {
+  color: var(--primary-dark);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: var(--accent-hover);
+}
+
+/* UTILITY OVERRIDES (To kill the Blue) */
+.text-primary {
+  color: var(--primary-dark) !important;
+  /* Use slightly darker for text readability */
+}
+
+.bg-primary {
+  background-color: var(--primary-color) !important;
+}
+
+.border-primary {
+  border-color: var(--primary-color) !important;
+}
+
+.badge.bg-primary {
+  background-color: var(--primary-color) !important;
+  color: white;
+}
+
+/* Button Overrides */
+.btn {
+  font-weight: 500;
+  border-radius: var(--radius-md);
+  padding: 0.5rem 1.25rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: white;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+  background-color: var(--primary-dark) !important;
+  border-color: var(--primary-dark) !important;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-outline-primary {
+  color: var(--primary-dark);
+  border-color: var(--primary-color);
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: white;
+}
+
+.btn:focus,
+.btn:active:focus,
+.btn-link.nav-link:focus,
+.form-control:focus,
+.form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem var(--border-color);
+  /* Soft focus ring */
+}
+
+/* Navbar specific to ensure it takes the color */
+.navbar-dark.bg-primary {
+  background-color: var(--primary-color) !important;
+}
+
+/* Cards */
+.card {
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background-color: var(--bg-surface);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Form Controls */
+.form-control,
+.form-select {
+  border-color: var(--border-color);
+  padding: 0.6rem 1rem;
+  border-radius: var(--radius-md);
+  color: var(--text-main);
+}
+
+.form-control:focus {
+  border-color: var(--primary-color);
+}
+
+/* Layout Classes */
+.navbar {
+  box-shadow: var(--shadow-sm);
+}
+
+.navbar .nav-link {
+  color: var(--text-main) !important;
+  font-weight: 600;
+}
+
+.navbar .nav-link:hover {
+  color: white !important;
+}
+
+/* Pagination Overrides */
+.page-link {
+  color: var(--primary-color);
+  border-color: var(--border-color);
+}
+
+.page-link:hover {
+  color: var(--accent-hover);
+  background-color: var(--secondary-color);
+  border-color: var(--border-color);
+}
+
+.page-item.active .page-link {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+/* Product Price Styling */
+.text-price {
+  color: #e879f9 !important;
+  /* Fuchsia 400 - Pink close to violet */
+  font-weight: 800;
+}

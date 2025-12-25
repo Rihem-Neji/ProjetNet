@@ -1,0 +1,103 @@
+﻿@model IEnumerable<ProjetNet.Models.Product>
+
+@{
+    ViewData["Title"] = "Recherche avancée";
+}
+
+<div class="container mt-4">
+
+    <h3 class="mb-4 fw-bold">Recherche avancée</h3>
+
+    <!-- FORMULAIRE DE FILTRES -->
+    <form method="get" class="card p-3 shadow-sm mb-4">
+
+        <div class="row g-3">
+
+            <div class="col-md-4">
+                <label class="form-label">Produit</label>
+                <input type="text" name="query" class="form-control" placeholder="Nom du produit...">
+            </div>
+
+            <div class="col-md-4">
+                <label class="form-label">Marque</label>
+                <select name="brandId" class="form-select">
+                    <option value="">Toutes</option>
+                    @foreach (var b in ViewBag.Brands)
+                    {
+                        <option value="@b.Id">@b.Name</option>
+                    }
+                </select>
+            </div>
+
+            <div class="col-md-4">
+                <label class="form-label">Catégorie</label>
+                <select name="categoryId" class="form-select">
+                    <option value="">Toutes</option>
+                    @foreach (var c in ViewBag.Categories)
+                    {
+                        <option value="@c.Id">@c.Name</option>
+                    }
+                </select>
+            </div>
+
+            <div class="col-md-4">
+                <label class="form-label">Ingrédient</label>
+                <select name="ingredientId" class="form-select">
+                    <option value="">Tous</option>
+                    @foreach (var ing in ViewBag.Ingredients)
+                    {
+                        <option value="@ing.Id">@ing.Name</option>
+                    }
+                </select>
+            </div>
+
+            <div class="col-md-4">
+                <label class="form-label">Type de peau</label>
+                <select name="skinTypeId" class="form-select">
+                    <option value="">Tous</option>
+                    @foreach (var skin in ViewBag.SkinTypes)
+                    {
+                        <option value="@skin.Id">@skin.Type</option>
+
+                    }
+                </select>
+            </div>
+
+            <div class="col-md-2">
+                <label class="form-label">Prix min</label>
+                <input type="number" name="minPrice" class="form-control" step="0.1">
+            </div>
+
+            <div class="col-md-2">
+                <label class="form-label">Prix max</label>
+                <input type="number" name="maxPrice" class="form-control" step="0.1">
+            </div>
+        </div>
+
+        <div class="text-end mt-3">
+            <button class="btn btn-primary px-4">Rechercher</button>
+        </div>
+
+    </form>
+
+
+
+    <!-- AFFICHAGE DES PRODUITS -->
+    <div class="row">
+        @foreach (var product in Model)
+        {
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
+                <div class="card h-100 shadow-sm border-0 rounded-3 overflow-hidden">
+                    <img src="/images/@product.ImageUrl" class="card-img-top" style="height: 220px; object-fit: cover;">
+                    <div class="card-body text-center">
+                        <h6 class="card-title text-truncate">@product.Name</h6>
+                        <p class="text-muted small mb-1">@product.Brand?.Name</p>
+                        <p class="fw-bold mb-2">@product.Price DT</p>
+                        <a href="/Product/Details/@product.Id" class="btn btn-primary btn-sm w-100">Voir détails</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+</div>

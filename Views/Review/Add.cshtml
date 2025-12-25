@@ -1,0 +1,29 @@
+﻿@model ProjetNet.Models.Review
+
+@{
+    ViewData["Title"] = "Ajouter un Avis";
+}
+
+<div class="container mt-4">
+
+    <h2>Ajouter un Avis</h2>
+
+    <form method="post">
+
+        <input type="hidden" asp-for="ProductId" />
+
+        <div class="mb-3">
+            <label>Note (1 à 5)</label>
+            <input asp-for="Rating" class="form-control" type="number" min="1" max="5" required />
+        </div>
+
+        <div class="mb-3">
+            <label>Commentaire</label>
+            <textarea asp-for="Comment" class="form-control" rows="3"></textarea>
+        </div>
+
+        <button class="btn btn-success">Envoyer</button>
+
+    </form>
+
+</div>
